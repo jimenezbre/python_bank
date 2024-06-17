@@ -1,6 +1,6 @@
 saldo = 0
 
-extrato = [f"\nSeu saldo inicial é de: {saldo:.2f}\n"]
+extrato = [f"\nSeu saldo inicial é de: R$ {saldo:.2f}\n"]
 
 limite_saque = 500
 
@@ -24,13 +24,15 @@ def menu():
     elif opcao == 4:
         print("Obrigado por utilizar o Python Bank!")
         quit()
+    else :
+        print("Opcão inválida")
+        
 
 def sacar():
     global saldo, extrato, limite_saque_restante
 
     if limite_saque_restante <= 0:
         print("Você atingiu o limite de saques diários.")
-        menu()
         return
     
     saque = float(input("Qual o valor que deseja sacar? "))
@@ -45,7 +47,6 @@ def sacar():
         limite_saque_restante -= 1
         extrato.append(f"\nSaque de: R$ {saque:.2f}\n Seu novo saldo é de: R${saldo:.2f}\n")
         print(f"Seu novo saldo é de: R${saldo:.2f}")
-    menu()
         
 def depositar():
     global saldo, extrato
@@ -57,7 +58,6 @@ def depositar():
         saldo += deposito
         extrato.append(f"\nDeposito de: R$ {deposito:.2f}\n Seu novo saldo é de: R$ {saldo:.2f}\n")
         print(f"Seu novo saldo é de: R$ {saldo:.2f}")
-    menu()
 
 def mostrar_extrato():
     global extrato
@@ -65,6 +65,6 @@ def mostrar_extrato():
     print("Seu extrato: ")
     for i in extrato:
         print(i)
-    menu()
 
-menu()
+while True:
+    menu()
