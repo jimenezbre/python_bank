@@ -1,6 +1,6 @@
 saldo = 0
 
-extrato = [f"Seu saldo inicial é de: R$ {saldo:.2f}"]
+extrato = [f"\nSeu saldo inicial é de: {saldo:.2f}\n"]
 
 limite_saque = 500
 
@@ -43,8 +43,8 @@ def sacar():
     else:
         saldo -= saque
         limite_saque_restante -= 1
-        extrato.append(f"Saque de: R$ {saque:.2f}")
-        print(f"Seu novo saldo é de: R$ {saldo:.2f}")
+        extrato.append(f"\nSaque de: R$ {saque:.2f}\n Seu novo saldo é de: R${saldo:.2f}\n")
+        print(f"Seu novo saldo é de: R${saldo:.2f}")
     menu()
         
 def depositar():
@@ -55,7 +55,7 @@ def depositar():
         print("Valor inválido")
     else:
         saldo += deposito
-        extrato.append(f"Deposito de: R$ {deposito:.2f}")
+        extrato.append(f"\nDeposito de: R$ {deposito:.2f}\n Seu novo saldo é de: R$ {saldo:.2f}\n")
         print(f"Seu novo saldo é de: R$ {saldo:.2f}")
     menu()
 
